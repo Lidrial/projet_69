@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dw2r5d4unxm6r"
+path="res://.godot/imported/WallSlide.wav-6278f03735a61fe5759561fb75a3784c.sample"
+
+[deps]
+
+source_file="res://assets/Prototype Hero 1.3/Audio/WallSlide.wav"
+dest_files=["res://.godot/imported/WallSlide.wav-6278f03735a61fe5759561fb75a3784c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

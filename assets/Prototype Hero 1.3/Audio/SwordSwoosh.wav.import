@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://djxx85q4rv2sq"
+path="res://.godot/imported/SwordSwoosh.wav-aff848e9800ea5db414cd12a01de27d6.sample"
+
+[deps]
+
+source_file="res://assets/Prototype Hero 1.3/Audio/SwordSwoosh.wav"
+dest_files=["res://.godot/imported/SwordSwoosh.wav-aff848e9800ea5db414cd12a01de27d6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
