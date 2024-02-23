@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c0p1xbmhba2f"
+path="res://.godot/imported/Hurt.wav-9540a24874194c6030e034771781a09d.sample"
+
+[deps]
+
+source_file="res://assets/Prototype Hero 1.3/Audio/Hurt.wav"
+dest_files=["res://.godot/imported/Hurt.wav-9540a24874194c6030e034771781a09d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

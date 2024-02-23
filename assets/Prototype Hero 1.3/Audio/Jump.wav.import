@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://muu8larq77hb"
+path="res://.godot/imported/Jump.wav-3be147932e8432e8d1b82654a8d6df0e.sample"
+
+[deps]
+
+source_file="res://assets/Prototype Hero 1.3/Audio/Jump.wav"
+dest_files=["res://.godot/imported/Jump.wav-3be147932e8432e8d1b82654a8d6df0e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
