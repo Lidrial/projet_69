@@ -328,7 +328,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"3-Walk",
-"speed": 8.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -452,17 +452,19 @@ position = Vector2(53, 35)
 
 [node name="PrototypeBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(484, 440)
+scale = Vector2(2, 2)
 script = ExtResource("1_rgh7o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PrototypeBody2D"]
 sprite_frames = SubResource("SpriteFrames_bmod2")
-animation = &"2-Run"
+animation = &"3-Walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PrototypeBody2D"]
 position = Vector2(-6, 15)
 shape = SubResource("CircleShape2D_pq41u")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-18, 39)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(496, 491)
