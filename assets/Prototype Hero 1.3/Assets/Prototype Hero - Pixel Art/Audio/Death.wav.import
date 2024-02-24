@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dhao2uu0bq7yj"
+path="res://.godot/imported/Death.wav-50c40c53f57cd35e77caa00c4eaaf8f5.sample"
+
+[deps]
+
+source_file="res://assets/Prototype Hero 1.3/Assets/Prototype Hero - Pixel Art/Audio/Death.wav"
+dest_files=["res://.godot/imported/Death.wav-50c40c53f57cd35e77caa00c4eaaf8f5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

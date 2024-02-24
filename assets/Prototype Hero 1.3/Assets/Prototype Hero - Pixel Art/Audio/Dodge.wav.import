@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c31w1rmlnojys"
+path="res://.godot/imported/Dodge.wav-9a3bb76a099ac14c366cf21588900639.sample"
+
+[deps]
+
+source_file="res://assets/Prototype Hero 1.3/Assets/Prototype Hero - Pixel Art/Audio/Dodge.wav"
+dest_files=["res://.godot/imported/Dodge.wav-9a3bb76a099ac14c366cf21588900639.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

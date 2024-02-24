@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d1yun2q5x1kpq"
+path="res://.godot/imported/Footstep3.wav-1a429fe2a205b8828fcd4f1ab758045f.sample"
+
+[deps]
+
+source_file="res://assets/Prototype Hero 1.3/Assets/Prototype Hero - Pixel Art/Audio/Footstep3.wav"
+dest_files=["res://.godot/imported/Footstep3.wav-1a429fe2a205b8828fcd4f1ab758045f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
