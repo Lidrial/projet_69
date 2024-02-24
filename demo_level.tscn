@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvfojax78j503"]
+
+[ext_resource type="Texture2D" uid="uid://cuccvld4memi" path="res://assets/demo_level/Group 3.png" id="1_c7syr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v0re8"]
+size = Vector2(206, 51)
+
+[node name="DemoLevel" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 473.0
+scale = Vector2(1.6038, 1.60727)
+texture = ExtResource("1_c7syr")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+offset_left = 192.0
+offset_top = 587.0
+offset_right = 232.0
+offset_bottom = 627.0
+scale = Vector2(5.14562, 1.26648)
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(295, 612.5)
+shape = SubResource("RectangleShape2D_v0re8")
+metadata/_edit_lock_ = true
