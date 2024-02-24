@@ -457,7 +457,8 @@ script = ExtResource("1_rgh7o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PrototypeBody2D"]
 sprite_frames = SubResource("SpriteFrames_bmod2")
-animation = &"3-Walk"
+animation = &"7-Slide"
+frame_progress = 0.773892
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PrototypeBody2D"]
 position = Vector2(-6, 15)
