@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://bmdkwmo4tjswl"]
+[gd_scene load_steps=70 format=3 uid="uid://dh16ubomrar2b"]
 
 [ext_resource type="Script" path="res://CthuluBody2D.gd" id="1_vdmb0"]
 [ext_resource type="Texture2D" uid="uid://c3colnxja0xwc" path="res://assets/free_cthulu/animations/PNG/1atk/1atk_1.png" id="2_32soq"]
