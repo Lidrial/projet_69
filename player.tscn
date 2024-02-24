@@ -738,7 +738,8 @@ position = Vector2(516, 339)
 sprite_frames = SubResource("SpriteFrames_x245v")
 animation = &"take_hit"
 autoplay = "air_atk"
-frame_progress = 0.536329
+frame = 2
+frame_progress = 0.0341993
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -754,3 +755,4 @@ offset_right = 307.0
 offset_bottom = 520.0
 scale = Vector2(11.4907, 0.558573)
 color = Color(0.517647, 0.333333, 0.647059, 1)
+metadata/_edit_use_anchors_ = true
