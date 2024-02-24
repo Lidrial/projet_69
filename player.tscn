@@ -193,7 +193,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"air_atk",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -231,7 +231,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"atk_1",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -293,7 +293,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"atk_2",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -382,7 +382,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"atk_3",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -441,7 +441,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"atk_sp",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -485,7 +485,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"death",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -520,7 +520,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"defend",
-"speed": 5.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -602,7 +602,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump",
-"speed": 10.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -616,7 +616,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump_down",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -630,7 +630,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump_up",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -659,7 +659,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"roll",
-"speed": 5.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -688,7 +688,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 10.0
+"speed": 11.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -711,7 +711,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"take_hit",
-"speed": 5.0
+"speed": 15.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sce0j"]
@@ -734,9 +734,11 @@ scale = Vector2(6.08859, 6.08859)
 texture = ExtResource("2_s268u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-position = Vector2(516, 337)
+position = Vector2(516, 339)
 sprite_frames = SubResource("SpriteFrames_x245v")
-animation = &"air_atk"
+animation = &"take_hit"
+autoplay = "air_atk"
+frame_progress = 0.536329
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
