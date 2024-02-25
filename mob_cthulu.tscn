@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://bmdkwmo4tjswl"]
+[gd_scene load_steps=71 format=3 uid="uid://bmdkwmo4tjswl"]
 
 [ext_resource type="Script" path="res://CthuluBody2D.gd" id="1_vdmb0"]
 [ext_resource type="Texture2D" uid="uid://c3colnxja0xwc" path="res://assets/free_cthulu/animations/PNG/1atk/1atk_1.png" id="2_32soq"]
@@ -303,6 +303,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_upu87"]
 size = Vector2(20, 38.7157)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oqq6f"]
+radius = 71.403
+height = 223.82
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qu525"]
 size = Vector2(407, 20)
 
@@ -316,7 +320,9 @@ script = ExtResource("1_vdmb0")
 unique_name_in_owner = true
 position = Vector2(97, 56)
 sprite_frames = SubResource("SpriteFrames_guqbb")
-animation = &"walk"
+animation = &"1atk"
+frame = 6
+frame_progress = 0.221466
 
 [node name="CthuluShape2D" type="CollisionShape2D" parent="CthuluBody2D"]
 position = Vector2(98, 67.0128)
@@ -327,7 +333,17 @@ shape = SubResource("RectangleShape2D_upu87")
 process_mode = 4
 visible = false
 
+[node name="Area2D" type="Area2D" parent="CthuluBody2D"]
+position = Vector2(98, 67)
+rotation = 1.5708
+scale = Vector2(0.41377, 0.513611)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CthuluBody2D/Area2D"]
+shape = SubResource("CapsuleShape2D_oqq6f")
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+process_mode = 4
+visible = false
 position = Vector2(-264, -370)
 collision_layer = 15
 collision_mask = 15
@@ -363,3 +379,5 @@ offset_right = 307.0
 offset_bottom = 520.0
 scale = Vector2(11.4907, 0.558573)
 color = Color(0.517647, 0.333333, 0.647059, 1)
+
+[connection signal="body_entered" from="CthuluBody2D/Area2D" to="CthuluBody2D" method="_on_area_2d_body_entered"]
