@@ -22,8 +22,9 @@ func _physics_process(delta):
 	#pick a random number between 1 and 2 every 10 frames
 	if temp == 0:
 		OneOrTwo = randi_range(1,4)
+		print(OneOrTwo)
 		#OneOrTwo = 4
-		temp = 40
+		temp = 60
 	else:
 		temp -= 1
 	#OneOrTwo = randi_range(1,2)
