@@ -300,8 +300,8 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lsx3p"]
-radius = 30.0167
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_upu87"]
+size = Vector2(20, 38.7157)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qu525"]
 size = Vector2(407, 20)
@@ -310,24 +310,26 @@ size = Vector2(407, 20)
 
 [node name="CthuluBody2D" type="CharacterBody2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-4, -137)
 script = ExtResource("1_vdmb0")
 
 [node name="AnimatedCthulu2D" type="AnimatedSprite2D" parent="CthuluBody2D"]
 unique_name_in_owner = true
-position = Vector2(498, 432)
+position = Vector2(96, 56)
 sprite_frames = SubResource("SpriteFrames_guqbb")
 animation = &"1atk"
 frame_progress = 0.757228
 
 [node name="CthuluShape2D" type="CollisionShape2D" parent="CthuluBody2D"]
-position = Vector2(499, 429)
+position = Vector2(97, 67.0128)
 scale = Vector2(1.49744, 1.49744)
-shape = SubResource("CircleShape2D_lsx3p")
+shape = SubResource("RectangleShape2D_upu87")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="CthuluBody2D"]
+process_mode = 4
+visible = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+process_mode = 4
 collision_layer = 15
 collision_mask = 15
 
