@@ -20,7 +20,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	if is_attacking:
+	if is_attacking and is_on_floor():
 		return
 	
 	if not is_on_floor():
@@ -28,7 +28,8 @@ func _physics_process(delta):
 		
 	#pick a random number between 1 and 4 every 10 frames
 	if temp == 0: 
-		action = randi_range(1,4)
+		# action = randi_range(1,4)
+		action = 4
 		HasJumped = false		
 		print(action)
 		temp = 60
