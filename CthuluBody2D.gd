@@ -1,12 +1,14 @@
 extends CharacterBody2D
 
-const SPEED = 150.0 
+const SPEED = 500.0 
 var mouvementX = 0
 var saut = 0
 var action #deffinition des action a effectuer
 var temp = 10
 const JUMP_VELOCITY = -400.0
 var HasJumped = false 
+var is_attacking = false
+
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -18,6 +20,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	if is_attacking:
+		return
 	
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -71,7 +75,14 @@ func _physics_process(delta):
 func _on_area_2d_body_entered(body):
 	#attaquer
 
-	print("detect") 
+	print("detect", body) 
 	%AnimatedCthulu2D.play("1atk")
-	
+	is_attacking = true
+	pass # Replace with function body.
+
+
+func _on_area_2d_body_exited(body):
+	#arreter d'attaquer
+	print("undetect", body)
+	is_attacking = false
 	pass # Replace with function body.

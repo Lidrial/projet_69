@@ -314,6 +314,7 @@ size = Vector2(407, 20)
 
 [node name="CthuluBody2D" type="CharacterBody2D" parent="."]
 unique_name_in_owner = true
+collision_mask = 3
 script = ExtResource("1_vdmb0")
 
 [node name="AnimatedCthulu2D" type="AnimatedSprite2D" parent="CthuluBody2D"]
@@ -337,14 +338,15 @@ visible = false
 position = Vector2(98, 67)
 rotation = 1.5708
 scale = Vector2(0.41377, 0.513611)
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CthuluBody2D/Area2D"]
 shape = SubResource("CapsuleShape2D_oqq6f")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+process_mode = 4
+visible = false
 position = Vector2(-264, -370)
-collision_layer = 15
-collision_mask = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(496, 491)
@@ -360,10 +362,10 @@ scale = Vector2(11.4907, 0.558573)
 color = Color(0.517647, 0.333333, 0.647059, 1)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
+process_mode = 4
+visible = false
 position = Vector2(-296, -402)
 scale = Vector2(0.480033, 0.938256)
-collision_layer = 15
-collision_mask = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(496, 491)
@@ -379,9 +381,9 @@ scale = Vector2(11.4907, 0.558573)
 color = Color(0.517647, 0.333333, 0.647059, 1)
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
+process_mode = 4
+visible = false
 position = Vector2(139, -412)
-collision_layer = 15
-collision_mask = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
 position = Vector2(496, 491)
@@ -397,3 +399,4 @@ scale = Vector2(11.4907, 0.558573)
 color = Color(0.517647, 0.333333, 0.647059, 1)
 
 [connection signal="body_entered" from="CthuluBody2D/Area2D" to="CthuluBody2D" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="CthuluBody2D/Area2D" to="CthuluBody2D" method="_on_area_2d_body_exited"]
