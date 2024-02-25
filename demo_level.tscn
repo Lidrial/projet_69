@@ -1,7 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://cvfojax78j503"]
+[gd_scene load_steps=20 format=3 uid="uid://cvfojax78j503"]
 
 [ext_resource type="Texture2D" uid="uid://cuccvld4memi" path="res://assets/demo_level/Group 3.png" id="1_c7syr"]
 [ext_resource type="Texture2D" uid="uid://teofuu8i0paj" path="res://assets/prototype-textures/PNG/Dark/texture_13.png" id="2_linrk"]
+[ext_resource type="Texture2D" uid="uid://6kah0xuqu5q0" path="res://assets/prototype-textures/PNG/Dark/texture_08.png" id="3_d4oms"]
+[ext_resource type="Texture2D" uid="uid://7kexmmkh5n4" path="res://assets/prototype-textures/PNG/Green/texture_09.png" id="4_6af2j"]
+[ext_resource type="PackedScene" uid="uid://bjqxnvyctt4xo" path="res://prototype_character.tscn" id="5_r7fhm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hhxtg"]
 size = Vector2(221, 51)
@@ -36,6 +39,32 @@ size = Vector2(229.309, 51)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lovf1"]
 size = Vector2(241.268, 51)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eyqbh"]
+texture = ExtResource("3_d4oms")
+texture_region_size = Vector2i(1024, 1024)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-512, -512, 512, -512, 512, 512, -512, 512)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n1ar8"]
+texture = ExtResource("4_6af2j")
+texture_region_size = Vector2i(1024, 1024)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_j2ns8"]
+tile_size = Vector2i(1024, 1024)
+physics_layer_0/collision_layer = 1
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+terrain_set_0/terrain_1/name = "Terrain 1"
+terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
+sources/4 = SubResource("TileSetAtlasSource_eyqbh")
+sources/5 = SubResource("TileSetAtlasSource_n1ar8")
+
 [node name="DemoLevel" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -43,18 +72,25 @@ offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(46.1552, 19.0687)
 color = Color(0.611765, 0.611765, 0.611765, 1)
-
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 1152.0
-offset_bottom = 473.0
-scale = Vector2(1.6038, 1.60727)
-texture = ExtResource("1_c7syr")
 metadata/_edit_lock_ = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+offset_left = -197.0
+offset_top = -399.0
+offset_right = 955.0
+offset_bottom = 74.0
+scale = Vector2(2.58286, 2.58844)
+texture = ExtResource("1_c7syr")
+
+[node name="Node" type="Node" parent="."]
+process_mode = 4
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node"]
+visible = false
 position = Vector2(194, 588)
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+[node name="ColorRect" type="ColorRect" parent="Node/StaticBody2D"]
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 39.0
@@ -62,241 +98,256 @@ offset_bottom = 39.0
 scale = Vector2(5.14562, 1.26648)
 color = Color(0, 0, 0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/StaticBody2D"]
 position = Vector2(109.5, 24.5)
 shape = SubResource("RectangleShape2D_hhxtg")
 
-[node name="Sprite2D3" type="Sprite2D" parent="StaticBody2D"]
+[node name="Sprite2D3" type="Sprite2D" parent="Node/StaticBody2D"]
 position = Vector2(-0.999992, -2)
 scale = Vector2(0.201467, 0.0494752)
 texture = ExtResource("2_linrk")
 offset = Vector2(511.16, 532.859)
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+[node name="StaticBody2D2" type="StaticBody2D" parent="Node"]
+visible = false
 position = Vector2(693, 569)
 scale = Vector2(1.37761, 1.12731)
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D2"]
+[node name="ColorRect" type="ColorRect" parent="Node/StaticBody2D2"]
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(5.14562, 1.26648)
 color = Color(0, 0, 0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/StaticBody2D2"]
 position = Vector2(103.077, 25.5)
 shape = SubResource("RectangleShape2D_g5cp8")
 
-[node name="Sprite2D3" type="Sprite2D" parent="StaticBody2D2"]
+[node name="Sprite2D3" type="Sprite2D" parent="Node/StaticBody2D2"]
 position = Vector2(724.441, -370.793)
 scale = Vector2(0.0358337, 0.0205594)
 texture = ExtResource("2_linrk")
 offset = Vector2(511.16, 532.859)
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+[node name="StaticBody2D3" type="StaticBody2D" parent="Node"]
+visible = false
 position = Vector2(977, 71)
 scale = Vector2(0.406671, 10.328)
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D3"]
+[node name="ColorRect" type="ColorRect" parent="Node/StaticBody2D3"]
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(5.14562, 1.26648)
 color = Color(0, 0, 0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/StaticBody2D3"]
 position = Vector2(103.077, 25.5)
 shape = SubResource("RectangleShape2D_o8ayp")
 
-[node name="Sprite2D3" type="Sprite2D" parent="StaticBody2D3"]
+[node name="Sprite2D3" type="Sprite2D" parent="Node/StaticBody2D3"]
 position = Vector2(1755.72, 7.7459)
 scale = Vector2(0.121388, 0.00224407)
 texture = ExtResource("2_linrk")
 offset = Vector2(511.16, 532.859)
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+[node name="StaticBody2D4" type="StaticBody2D" parent="Node"]
+visible = false
 position = Vector2(452, 462)
 scale = Vector2(0.978231, 1.02632)
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D4"]
+[node name="ColorRect" type="ColorRect" parent="Node/StaticBody2D4"]
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(5.14562, 1.26648)
 color = Color(0, 0, 0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/StaticBody2D4"]
 position = Vector2(115.532, 25.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_unogm")
 
-[node name="Sprite2D3" type="Sprite2D" parent="StaticBody2D4"]
+[node name="Sprite2D3" type="Sprite2D" parent="Node/StaticBody2D4"]
 position = Vector2(1266.57, -303.024)
 scale = Vector2(0.0504635, 0.0225825)
 texture = ExtResource("2_linrk")
 offset = Vector2(511.16, 532.859)
 
-[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+[node name="StaticBody2D5" type="StaticBody2D" parent="Node"]
+visible = false
 position = Vector2(754, 168)
 scale = Vector2(0.398476, 1.07175)
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D5"]
+[node name="ColorRect" type="ColorRect" parent="Node/StaticBody2D5"]
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(5.14562, 1.26648)
 color = Color(0, 0, 0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/StaticBody2D5"]
 position = Vector2(127.988, 25.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_xk5r5")
 
-[node name="Sprite2D2" type="Sprite2D" parent="StaticBody2D5"]
+[node name="Sprite2D2" type="Sprite2D" parent="Node/StaticBody2D5"]
 position = Vector2(2351.46, -15.8618)
 scale = Vector2(0.123884, 0.0216252)
 texture = ExtResource("2_linrk")
 offset = Vector2(511.16, 532.859)
 
-[node name="StaticBody2D6" type="StaticBody2D" parent="."]
+[node name="StaticBody2D6" type="StaticBody2D" parent="Node"]
+visible = false
 position = Vector2(1074, 130)
 scale = Vector2(0.434701, 0.893125)
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D6"]
+[node name="ColorRect" type="ColorRect" parent="Node/StaticBody2D6"]
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(5.14562, 1.26648)
 color = Color(0, 0, 0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/StaticBody2D6"]
 position = Vector2(127.988, 25.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_41jew")
 
-[node name="Sprite2D2" type="Sprite2D" parent="StaticBody2D6"]
+[node name="Sprite2D2" type="Sprite2D" parent="Node/StaticBody2D6"]
 position = Vector2(1419.37, 23.5129)
 scale = Vector2(0.113561, 0.0259503)
 texture = ExtResource("2_linrk")
 offset = Vector2(511.16, 532.859)
 
-[node name="StaticBody2D7" type="StaticBody2D" parent="."]
+[node name="StaticBody2D7" type="StaticBody2D" parent="Node"]
+visible = false
 position = Vector2(905, 404)
 scale = Vector2(0.353779, 1.20215)
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D7"]
+[node name="ColorRect" type="ColorRect" parent="Node/StaticBody2D7"]
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(5.14562, 1.26648)
 color = Color(0, 0, 0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D7"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/StaticBody2D7"]
 position = Vector2(103.52, 25.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_u5huu")
 
-[node name="Sprite2D2" type="Sprite2D" parent="StaticBody2D7"]
+[node name="Sprite2D2" type="Sprite2D" parent="Node/StaticBody2D7"]
 position = Vector2(2221.72, -210.457)
 scale = Vector2(0.139536, 0.0192796)
 texture = ExtResource("2_linrk")
 offset = Vector2(511.16, 532.859)
 
-[node name="StaticBody2D8" type="StaticBody2D" parent="."]
+[node name="StaticBody2D8" type="StaticBody2D" parent="Node"]
+visible = false
 position = Vector2(1162, 232)
 scale = Vector2(0.819821, 2.81413)
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D8"]
+[node name="ColorRect" type="ColorRect" parent="Node/StaticBody2D8"]
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(5.14562, 1.26648)
 color = Color(0, 0, 0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D8"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/StaticBody2D8"]
 position = Vector2(103.52, 25.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_w6iw2")
 
-[node name="Sprite2D2" type="Sprite2D" parent="StaticBody2D8"]
+[node name="Sprite2D2" type="Sprite2D" parent="Node/StaticBody2D8"]
 position = Vector2(645.263, -28.7834)
 scale = Vector2(0.0602143, 0.0082359)
 texture = ExtResource("2_linrk")
 offset = Vector2(511.16, 532.859)
 
-[node name="StaticBody2D9" type="StaticBody2D" parent="."]
+[node name="StaticBody2D9" type="StaticBody2D" parent="Node"]
+visible = false
 position = Vector2(1319, 403)
 scale = Vector2(0.845794, 1.2973)
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D9"]
+[node name="ColorRect" type="ColorRect" parent="Node/StaticBody2D9"]
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(5.14562, 1.26648)
 color = Color(0, 0, 0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D9"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/StaticBody2D9"]
 position = Vector2(103.52, 25.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_s1fxn")
 
-[node name="Sprite2D2" type="Sprite2D" parent="StaticBody2D9"]
+[node name="Sprite2D2" type="Sprite2D" parent="Node/StaticBody2D9"]
 position = Vector2(439.823, -194.249)
 scale = Vector2(0.0583652, 0.0178654)
 texture = ExtResource("2_linrk")
 offset = Vector2(511.16, 532.859)
 
-[node name="StaticBody2D10" type="StaticBody2D" parent="."]
+[node name="StaticBody2D10" type="StaticBody2D" parent="Node"]
+visible = false
 position = Vector2(1495, 308)
 scale = Vector2(0.231127, 0.853542)
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D10"]
+[node name="ColorRect" type="ColorRect" parent="Node/StaticBody2D10"]
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(5.14562, 1.26648)
 color = Color(0, 0, 0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D10"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/StaticBody2D10"]
 position = Vector2(114.655, 25.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_hqrck")
 
-[node name="Sprite2D2" type="Sprite2D" parent="StaticBody2D10"]
+[node name="Sprite2D2" type="Sprite2D" parent="Node/StaticBody2D10"]
 position = Vector2(848.017, -183.939)
 scale = Vector2(0.213583, 0.0271537)
 texture = ExtResource("2_linrk")
 offset = Vector2(511.16, 532.859)
 
-[node name="StaticBody2D11" type="StaticBody2D" parent="."]
+[node name="StaticBody2D11" type="StaticBody2D" parent="Node"]
+visible = false
 position = Vector2(1631, 202)
 scale = Vector2(0.223817, 0.927887)
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D11"]
+[node name="ColorRect" type="ColorRect" parent="Node/StaticBody2D11"]
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(5.14562, 1.26648)
 color = Color(0, 0, 0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D11"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/StaticBody2D11"]
 position = Vector2(120.634, 25.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_lovf1")
 
-[node name="Sprite2D2" type="Sprite2D" parent="StaticBody2D11"]
+[node name="Sprite2D2" type="Sprite2D" parent="Node/StaticBody2D11"]
 position = Vector2(0, -1.07772)
 scale = Vector2(0.203164, 0.0499649)
 texture = ExtResource("2_linrk")
 offset = Vector2(511.16, 532.859)
 
-[node name="StaticBody2D12" type="StaticBody2D" parent="."]
+[node name="StaticBody2D12" type="StaticBody2D" parent="Node"]
+visible = false
 position = Vector2(1691, 152)
 scale = Vector2(0.242993, 0.425451)
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D12"]
+[node name="ColorRect" type="ColorRect" parent="Node/StaticBody2D12"]
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(5.14562, 1.26648)
 color = Color(0, 0, 0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D12"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/StaticBody2D12"]
 position = Vector2(120.634, 25.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_lovf1")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D12"]
+[node name="Sprite2D" type="Sprite2D" parent="Node/StaticBody2D12"]
 position = Vector2(0.000137329, -2.35038)
 scale = Vector2(0.203154, 0.054476)
 texture = ExtResource("2_linrk")
 offset = Vector2(511.16, 532.859)
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(565, 334)
+scale = Vector2(-0.0732581, -0.0713461)
+tile_set = SubResource("TileSet_j2ns8")
+format = 2
+layer_0/name = "background"
+layer_0/z_index = -1
+layer_1/name = "foreground"
+layer_1/tile_data = PackedInt32Array(-262139, 4, 0, -262140, 4, 0, -262141, 4, 0, -262142, 4, 0, -65536, 4, 0, -1, 4, 0, -2, 4, 0, -3, 4, 0, -4, 4, 0, -196614, 4, 0, -196615, 4, 0, -196616, 4, 0, -196617, 4, 0, -196618, 4, 0, -196619, 4, 0, -196620, 4, 0, 524276, 4, 0, 458740, 4, 0, 393204, 4, 0, 327668, 4, 0, 262132, 4, 0, 196596, 4, 0, 131060, 4, 0, 65524, 4, 0, -12, 4, 0, -65548, 4, 0, -131084, 4, 0, 65525, 4, 0, 65526, 4, 0, 393208, 4, 0, 393209, 4, 0, 655354, 4, 0, 589818, 4, 0, 524282, 4, 0, 458746, 4, 0, 393210, 4, 0, 327674, 4, 0, 327675, 4, 0, 327676, 4, 0, 327677, 4, 0, 327678, 4, 0, 327679, 4, 0, 262144, 4, 0, 262145, 4, 0, 262146, 4, 0, 327682, 4, 0, 393218, 4, 0, 458754, 4, 0, 524290, 4, 0, 589826, 4, 0, 589825, 4, 0, 589824, 4, 0, 655359, 4, 0, 655358, 4, 0, 655357, 4, 0, 655356, 4, 0, 655355, 4, 0, 524286, 4, 0, 458750, 4, 0, 393214, 4, 0, 393213, 4, 0, 393212, 4, 0, 393211, 4, 0, 458747, 4, 0, 524283, 4, 0, 589819, 4, 0, 589820, 4, 0, 524284, 4, 0, 458748, 4, 0, 458749, 4, 0, 524285, 4, 0, 589821, 4, 0, 589822, 4, 0, 589823, 4, 0, 524287, 4, 0, 458751, 4, 0, 393215, 4, 0, 327680, 4, 0, 393216, 4, 0, 458752, 4, 0, 524288, 4, 0, 524289, 4, 0, 458753, 4, 0, 393217, 4, 0, 327681, 4, 0, 196590, 4, 0, 262126, 4, 0, 327662, 4, 0, 196591, 4, 0, 262127, 4, 0, 327663, 4, 0, 196592, 4, 0, 262128, 4, 0, 327664, 4, 0, 65514, 4, 0, 65515, 4, 0, 65516, 4, 0, 65517, 4, 0, 196585, 4, 0, 393190, 4, 0, 458722, 4, 0, 65513, 5, 0, 65512, 5, 0, 65509, 5, 0, 65508, 5, 0, 65507, 5, 0, 65506, 5, 0, 262119, 5, 0)
+
+[node name="PrototypeBody2D" parent="." instance=ExtResource("5_r7fhm")]
+position = Vector2(275, 455)
