@@ -4,6 +4,7 @@ extends CharacterBody2D
 const SPEED_WALK = 75.0
 const SPEED_RUN = 300.0
 const JUMP_VELOCITY = -815.0
+const AIR_X_VELOCITY = 0.5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 1.7
@@ -30,13 +31,13 @@ func _physics_process(delta):
 			_animated_sprite.flip_h = true
 
 	# Handle Walk.
-	if direction and not jump_input and not shift_input: 
+	if direction and not jump_input and shift_input: 
 		velocity.x = direction * SPEED_WALK
 		if direction != 0 and is_on_floor():
 			_animated_sprite.play("3-Walk")
 			
 	# Handle Run.
-	elif direction and not jump_input and shift_input: 
+	elif direction and not jump_input and not shift_input: 
 		velocity.x = direction * SPEED_RUN
 		if direction != 0 and is_on_floor():
 			_animated_sprite.play("2-Run")
@@ -48,15 +49,22 @@ func _physics_process(delta):
 		_animated_sprite.play('1-Idle')
 	
 	# Handle Jump.
-	elif jump_input and is_on_floor() :
+	elif jump_input:
 		jump()
 
 	move_and_slide()
 
 	
 func jump():
+	if is_on_wall():
+		# Apply a force in the opposite direction and upwards
+		velocity.x = -direction * AIR_X_VELOCITY 
+		velocity.y = JUMP_VELOCITY
+	elif is_on_floor():
+		velocity.x = AIR_X_VELOCITY 
+
 		velocity.y = JUMP_VELOCITY
 		_animated_sprite
-		_animated_sprite.play("4-Jump")
-		animation_locked = true
+	_animated_sprite.play("4-Jump")
+	animation_locked = true
 		
