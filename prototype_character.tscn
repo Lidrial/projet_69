@@ -447,25 +447,24 @@ radius = 25.02
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a0865"]
 size = Vector2(407, 20)
 
-[node name="Node2D" type="Node2D"]
-position = Vector2(53, 35)
-
-[node name="PrototypeBody2D" type="CharacterBody2D" parent="."]
+[node name="PrototypeBody2D" type="CharacterBody2D"]
 position = Vector2(484, 440)
 scale = Vector2(2, 2)
 script = ExtResource("1_rgh7o")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PrototypeBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bmod2")
 animation = &"7-Slide"
 frame_progress = 0.773892
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PrototypeBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-6, 15)
 shape = SubResource("CircleShape2D_pq41u")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(-18, 39)
+process_mode = 4
+visible = false
+position = Vector2(35, 74)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(496, 491)
@@ -480,3 +479,5 @@ offset_bottom = 520.0
 scale = Vector2(11.4907, 0.558573)
 color = Color(0.517647, 0.333333, 0.647059, 1)
 metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
