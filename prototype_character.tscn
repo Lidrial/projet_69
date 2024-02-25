@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://bjqxnvyctt4xo"]
+[gd_scene load_steps=60 format=3 uid="uid://h1o0ttrayuyx"]
 
 [ext_resource type="Script" path="res://PrototypeBody2D.gd" id="1_rgh7o"]
 [ext_resource type="Texture2D" uid="uid://c1332o2vkr7dw" path="res://assets/Prototype Hero 1.3/Sprites/PrototypeHero.png" id="2_w80f3"]
@@ -450,6 +450,7 @@ size = Vector2(407, 20)
 [node name="PrototypeBody2D" type="CharacterBody2D"]
 position = Vector2(484, 440)
 scale = Vector2(2, 2)
+collision_layer = 3
 script = ExtResource("1_rgh7o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

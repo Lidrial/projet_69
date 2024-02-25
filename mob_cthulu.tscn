@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://dh16ubomrar2b"]
+[gd_scene load_steps=71 format=3 uid="uid://bmdkwmo4tjswl"]
 
 [ext_resource type="Script" path="res://CthuluBody2D.gd" id="1_vdmb0"]
 [ext_resource type="Texture2D" uid="uid://c3colnxja0xwc" path="res://assets/free_cthulu/animations/PNG/1atk/1atk_1.png" id="2_32soq"]
@@ -303,6 +303,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_upu87"]
 size = Vector2(20, 38.7157)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oqq6f"]
+radius = 71.403
+height = 223.82
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qu525"]
 size = Vector2(407, 20)
 
@@ -310,17 +314,19 @@ size = Vector2(407, 20)
 
 [node name="CthuluBody2D" type="CharacterBody2D" parent="."]
 unique_name_in_owner = true
+collision_mask = 3
 script = ExtResource("1_vdmb0")
 
 [node name="AnimatedCthulu2D" type="AnimatedSprite2D" parent="CthuluBody2D"]
 unique_name_in_owner = true
-position = Vector2(96, 56)
+position = Vector2(97, 56)
 sprite_frames = SubResource("SpriteFrames_guqbb")
 animation = &"1atk"
-frame_progress = 0.757228
+frame = 6
+frame_progress = 0.221466
 
 [node name="CthuluShape2D" type="CollisionShape2D" parent="CthuluBody2D"]
-position = Vector2(97, 67.0128)
+position = Vector2(98, 67.0128)
 scale = Vector2(1.49744, 1.49744)
 shape = SubResource("RectangleShape2D_upu87")
 
@@ -328,11 +334,19 @@ shape = SubResource("RectangleShape2D_upu87")
 process_mode = 4
 visible = false
 
+[node name="Area2D" type="Area2D" parent="CthuluBody2D"]
+position = Vector2(98, 67)
+rotation = 1.5708
+scale = Vector2(0.41377, 0.513611)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CthuluBody2D/Area2D"]
+shape = SubResource("CapsuleShape2D_oqq6f")
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 process_mode = 4
 visible = false
-collision_layer = 15
-collision_mask = 15
+position = Vector2(-264, -370)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(496, 491)
@@ -346,3 +360,43 @@ offset_right = 307.0
 offset_bottom = 520.0
 scale = Vector2(11.4907, 0.558573)
 color = Color(0.517647, 0.333333, 0.647059, 1)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+process_mode = 4
+visible = false
+position = Vector2(-296, -402)
+scale = Vector2(0.480033, 0.938256)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(496, 491)
+scale = Vector2(1.12783, 1.12783)
+shape = SubResource("RectangleShape2D_qu525")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D2"]
+offset_left = 267.0
+offset_top = 480.0
+offset_right = 307.0
+offset_bottom = 520.0
+scale = Vector2(11.4907, 0.558573)
+color = Color(0.517647, 0.333333, 0.647059, 1)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+process_mode = 4
+visible = false
+position = Vector2(139, -412)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(496, 491)
+scale = Vector2(1.12783, 1.12783)
+shape = SubResource("RectangleShape2D_qu525")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D3"]
+offset_left = 267.0
+offset_top = 480.0
+offset_right = 307.0
+offset_bottom = 520.0
+scale = Vector2(11.4907, 0.558573)
+color = Color(0.517647, 0.333333, 0.647059, 1)
+
+[connection signal="body_entered" from="CthuluBody2D/Area2D" to="CthuluBody2D" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="CthuluBody2D/Area2D" to="CthuluBody2D" method="_on_area_2d_body_exited"]
