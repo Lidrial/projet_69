@@ -330,6 +330,7 @@ visible = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 process_mode = 4
+visible = false
 collision_layer = 15
 collision_mask = 15
 
