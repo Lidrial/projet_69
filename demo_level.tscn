@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://cvfojax78j503"]
+[gd_scene load_steps=21 format=3 uid="uid://cvfojax78j503"]
 
 [ext_resource type="Texture2D" uid="uid://cuccvld4memi" path="res://assets/demo_level/Group 3.png" id="1_c7syr"]
 [ext_resource type="Texture2D" uid="uid://teofuu8i0paj" path="res://assets/prototype-textures/PNG/Dark/texture_13.png" id="2_linrk"]
 [ext_resource type="Texture2D" uid="uid://6kah0xuqu5q0" path="res://assets/prototype-textures/PNG/Dark/texture_08.png" id="3_d4oms"]
 [ext_resource type="Texture2D" uid="uid://7kexmmkh5n4" path="res://assets/prototype-textures/PNG/Green/texture_09.png" id="4_6af2j"]
 [ext_resource type="PackedScene" uid="uid://bjqxnvyctt4xo" path="res://prototype_character.tscn" id="5_r7fhm"]
+[ext_resource type="PackedScene" uid="uid://dh16ubomrar2b" path="res://mob_cthulu.tscn" id="6_wcu18"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hhxtg"]
 size = Vector2(221, 51)
@@ -352,3 +353,8 @@ layer_1/tile_data = PackedInt32Array(-262139, 4, 0, -262140, 4, 0, -262141, 4, 0
 [node name="PrototypeBody2D" parent="." instance=ExtResource("5_r7fhm")]
 position = Vector2(124, 435)
 scale = Vector2(2.84233, 2.84233)
+
+[node name="CthuluBody2D" parent="." instance=ExtResource("6_wcu18")]
+unique_name_in_owner = true
+position = Vector2(741, 365)
+scale = Vector2(1.73255, 1.73255)
